@@ -13,12 +13,18 @@ a4paper,
 left=25mm, top=25mm}
 %\usepackage{minitoc}
 %\usepackage[tight]{shorttoc} % Pour pouvoir mettre un sommaire ET un table des matières
+
+\usepackage{makeidx}
+
 \usepackage[colorlinks=true,linkcolor=blue]{hyperref}   % pour les liens cliquables de la table des matières
+
 
 \usepackage{graphicx} %insertion d'image
 
 \usepackage{fancyhdr} %En-tête et pied de pages
 \usepackage{fancybox} % Des boites sympa
+
+
 
 
 %--------------------------------------------------------%
@@ -109,6 +115,8 @@ left=25mm, top=25mm}
 %------------Config Boite-------------------%
 
 
+
+\makeindex
 
 %%%%%%%%%%%%%%%%%%%%
 %-----------Début du document----------%
@@ -222,5 +230,8 @@ left=25mm, top=25mm}
 	\chapter{Recette d'hiver}
 	\chapter{Recette d'\'et\'e}
 
+\printindex
+
 \backmatter
+
 \end{document}
