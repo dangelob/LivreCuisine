@@ -1,0 +1,37 @@
+%Scones											% <-- x1
+% \include{./recettes/Claire/scones}								% <-- x1
+\section[\normalsize{Scones}]{\LARGE{\textsc{Scones}}}		% <-- x2
+
+
+\begin{itemize}
+\item Pour 4 personnes
+\item Préparation : 15 min
+\item Cuisson : 15 min
+\end{itemize}
+
+\subsection*{\textsc{Ingr\'edients~:}}
+
+\begin{itemize}
+
+\item 250 g de farine
+\item 40 g de sucre
+\item 50 g de beurre
+\item 1 jaune d'oeuf
+\item 150 ml de lait
+\item 50 g de raisins secs
+\item 1 pinc\'ee de sel
+\item 1 sachet de levure chimique
+\end{itemize}
+
+
+\subsection*{\textsc{Marche \`a suivre~:}}
+
+\begin{enumerate}
+\item Faire pr\'echauffer le four \`a 220\degre C.
+\item Dans un bol, m\'elanger la farine, le sucre, le sachet de levure et la pinc\'ee de sel. Rajouter au m\'elange le beurre tr\`es mou coup\'e en petites lamelles.
+\item Dans un autre bol, m\'elanger ensemble le lait avec le jaune d'oeuf.
+\item Rajouter progressivement ce m\'elange \`a la farine, rajouter un peu de farine si la p\^ate colle trop.
+\item Rajouter les raisins. Etaler la p\^ate sur 2cm d'\'epaisseur, d\'ecouper des cercles \`a l'emporte pi\`ece ou avec un verre, les d\'eposer sur une plaque de cuisson anti-adh\'esive. Badigeonner de lait avec un pinceau.  
+\item Mettre au four pendant 15 min.
+\end{enumerate}
+\subsection*{\textsc{Conseil~:}}

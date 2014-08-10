@@ -1,0 +1,36 @@
+%Brownies (façon Claire T.)											% <-- x1
+% \include{./recettes/Claire/browniesfaconclaire}								% <-- x1
+\section[\normalsize{Brownies (fa\c con Claire T.)}]{\LARGE{\textsc{Brownies (fa\c con Claire T.)}}}		% <-- x2
+
+
+\begin{itemize}
+\item Pour 6 personnes
+\item Préparation : 15 min
+\item Cuisson : 15 min
+\end{itemize}
+
+\subsection*{\textsc{Ingr\'edients~:}}
+
+\begin{itemize}
+\item 2 oeufs
+\item 50 g de sucre
+\item 50 g de farine
+\item 150 g de chocolat
+\item 50 g de beurre
+\item noix (env. 50 g)
+\end{itemize}
+
+
+\subsection*{\textsc{Marche \`a suivre~:}}
+
+\begin{enumerate}
+\item Pr\'echauffer le four \`a 200\degre C.
+\item Dans une terrine, battre les oeufs et le sucre. 
+\item Ajouter la farine, m\'elanger.
+\item Faire fondre le chocolat avec le beurre. 
+\item Ajouter \`a la pr\'eparation et bien m\'elanger.
+\item Ajouter les noix en morceaux.
+\item Faire cuire 15 \`a 20 minutes.
+\end{enumerate}
+\subsection*{\textsc{Conseil~:}}
+En divisant les quantit\'es par deux on obtient 6 mini brownies (dans des moules \`a muffins).

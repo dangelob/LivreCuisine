@@ -1,0 +1,38 @@
+%Biscuits de noël \`a la cannelle											% <-- x1
+% \include{./recettes/Claire/biscuitsdenoelalacannelle}								% <-- x1
+\section[\normalsize{Biscuits de noël \`a la cannelle}]{\LARGE{\textsc{Biscuits de noël \`a la cannelle}}}		% <-- x2
+
+
+\begin{itemize}
+\item Pour ? personnes
+\item Préparation : 20 min
+\item Cuisson : 10 min
+\end{itemize}
+
+\subsection*{\textsc{Ingr\'edients~:}}
+
+\begin{itemize}
+
+\item 270 g de beurre
+\item 500 g de farine
+\item 3 oeufs
+\item 150 g de poudre d'amandes
+\item 20 g de cannelle
+\item 1 zeste de citron rap\'e
+\item 250 g de sucre 
+\end{itemize}
+
+
+\subsection*{\textsc{Marche \`a suivre~:}}
+
+\begin{enumerate}
+\item Dans une terrine, p\'etrir le beurre ramolli avec la farine du bout des doigts. 
+\item Ajouter 2 oeufs, la poudre d'amandes, la cannelle, le zeste de citron et le sucre. 
+\item Travailler jusqu'\`a obtenir une p\^ate homog\`ene. 
+\item Couvrir d'un torchon et laisser reposer une nuit dans un endroit frais.
+\item Etaler la p\^ate, d\'ecouper \`a l'emporte pi\`eces les biscuits et les d\'eposer sur une plaque de cuisson. 
+\item Dorer \`a l'oeuf battu et faire cuire au four \`a 200\degre C
+\item Cuisson 5 min avec juste la sole du haut, puis 5 min avec les deux soles.
+
+\end{enumerate}
+\subsection*{\textsc{Conseil~:}}

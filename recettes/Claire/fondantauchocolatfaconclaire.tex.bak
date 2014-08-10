@@ -1,0 +1,34 @@
+% Fondant au chocolat (façon Claire T.)							% <-- x1
+% \include{./recettes/Claire/fondantauchocolatfaconclaire}							% <-- x1
+\section[\normalsize{Fondant au chocolat (fa\c con Claire T.)}]{\LARGE{\textsc{Fondant au chocolat (fa\c con Claire T.)}}}		% <-- x2
+
+
+\begin{itemize}
+\item Pour 6 personnes
+\item Préparation : 25 min
+\item Cuisson : 20 min
+\end{itemize}
+
+\subsection*{\textsc{Ingr\'edients~:}}
+
+\begin{itemize}
+
+\item 200 g de chocolat
+\item 150 g de beurre
+\item 5 oeufs
+\item 1 cuill\`ere \`a soupe de farine
+\item 180 g de sucre
+\end{itemize}
+
+
+\subsection*{\textsc{Marche \`a suivre~:}}
+
+\begin{enumerate}
+\item Pr\'echauffer le four \`a 190\degre C.
+\item Faire fondre le chocolat et le beurre au bain marie. 
+\item Ajouter au sucre et laisser refroidir un peu. 
+\item Ajouter les oeufs un \`a un en remuant bien \`a chaque fois. Verser la farine, lisser le m\'elange.
+\item Verser dans un moule \`a manqu\'e beurr\'e et faire cuire 20 minutes au four.
+
+\end{enumerate}
+\subsection*{\textsc{Conseil~:}}
