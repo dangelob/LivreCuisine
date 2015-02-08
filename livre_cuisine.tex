@@ -1,65 +1,69 @@
 %     Livre de Recette des D'ANGELO     %
-%                  - version 0.1 -                %
-%%%%%%%%%%%%%%%%%%%%
+%            - version 0.1 -            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Compilation : pdflatex
+
 \documentclass[A4paper,twoside, 12pt]{book}
 %--------------------------------------------------------%
 %-------------------LES PACKAGES-------------------------%
 %--------------------------------------------------------%
-\usepackage{fontspec}
-%\usepackage{lmodern} 			% polices vectorielles
-\usepackage{geometry}				%Gestion des marges
-\geometry{%
+%pdflatex
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}% polices 
+%\usepackage{newcent}% polices 
+
+\usepackage{geometry}%Gestion des marges
+\geometry{
 a4paper,
 left=25mm, top=25mm}
+
 %\usepackage{minitoc}
-%\usepackage[tight]{shorttoc} % Pour pouvoir mettre un sommaire ET un table des matières
+% Permet d'avoir un sommaire ET un table des matières
+%\usepackage[tight]{shorttoc} 
 
 \usepackage{makeidx}
 
-\usepackage[colorlinks=true,linkcolor=blue]{hyperref}   % pour les liens cliquables de la table des matières
-
+% pour les liens cliquables de la table des matières
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
 
 \usepackage{graphicx} %insertion d'image
 
 \usepackage{fancyhdr} %En-tête et pied de pages
 \usepackage{fancybox} % Des boites sympa
 
-
-
-
+\usepackage{textcomp} % pour  \degree
+\usepackage{enumitem} % Gestion fine des listes
 %--------------------------------------------------------%
-%-----------------LES COMMANDES-------------------%
+%-----------------------LES COMMANDES--------------------%
 %--------------------------------------------------------%
-\newcommand{\sommaire}{\shorttoc{Sommaire}{1}} %change la commande pour inserer une short table of content
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+%\newcommand{\sommaire}{\shorttoc{Sommaire}{1}} %change la commande pour inserer une short table of content
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % utilisation page de titre
 
-	%%------création d'une variable "sectiontitleindent" contenant l'indentation des titres de section
-\newlength{\sectiontitleindent}			
-\setlength{\sectiontitleindent}{-1cm}		% définition de la variable précédente
-	%%------création d'une variable "subsectiontitleindent" contenant l'indentation des titres de subsection
-\newlength{\subsectiontitleindent}			
-\setlength{\subsectiontitleindent}{-.5cm}		% définition de la variable précédente
+%%------indentation des titres de section
+\newlength{\sectiontitleindent}
+\setlength{\sectiontitleindent}{-1cm}	% attribution valeur
+%%------indentation des titres de subsection
+\newlength{\subsectiontitleindent}
+\setlength{\subsectiontitleindent}{-.5cm}	% attribution valeur
 
-
-	%%------définition d'une police (font) particulière pour les titres de section
-\newcommand{\sectionfont}{%		%nom de la variable qui contiendra la font
+%%------définition police de section
+\newcommand{\sectionfont}{%
 \fontencoding{\encodingdefault}%
-\fontfamily{pag}%indicatif de la font
-\fontseries{m}%graisse
+\fontfamily{pag}%
+\fontseries{m}%
 \fontshape{sc}%
 \selectfont}
-
-	%%------définition d'une police (font) particulière pour les titres de subsection
-\newcommand{\subsectionfont}{%		%nom de la variable qui contiendra la font
+%%------définition police de subsection
+\newcommand{\subsectionfont}{%
 \fontencoding{\encodingdefault}%
-\fontfamily{pag}%indicatif de la font
-\fontseries{bc}%graisse
+\fontfamily{pag}%
+\fontseries{m}%
 \fontshape{n}%
 \selectfont}
 
 	%%------Mise en forme des titres de sections
 \makeatletter %Permet de bidouiller avec l'@
-
 %--SECTION
 \renewcommand{\section}{%
 \@startsection%
@@ -69,8 +73,7 @@ left=25mm, top=25mm}
 {-3.5ex plus -1ex minus -.2ex}%
 {2.3ex plus .2ex}%
 {\sectionfont\LARGE}}
-
-%--SUBSECTION
+%%--SUBSECTION
 \renewcommand{\subsection}{%
 \@startsection%
 {subsection}%
@@ -79,7 +82,6 @@ left=25mm, top=25mm}
 {-3.5ex plus -1ex minus -.2ex}%
 {2.3ex plus .2ex}%
 {\subsectionfont\large}}
-
 \makeatother %fin de la permission pour l'@
 
 %--------------------------------------------------------%
@@ -101,10 +103,13 @@ left=25mm, top=25mm}
 %\date{---~Novembre 2011~---} 
 
 %------------Table des matières-------------------%
-\setcounter{secnumdepth}{0}			% profondeur de la numérotation (les sections ne sont pas numérotée)(si on veut les sections avec un numéro :  \setcounter{secnumdepth}{1})
-\setcounter{tocdepth}{1}			%jusqu'à quelle profondeur son inséré la titre dans le sommaire
+% profondeur de la numérotation (les sections ne sont pas numérotée)(si on veut les sections avec un numéro :  \setcounter{secnumdepth}{1})
+\setcounter{secnumdepth}{0}
 
+%jusqu'à quelle profondeur sont inséré les titres dans le sommaire
+\setcounter{tocdepth}{1}
 
+%Configuration de la minitoc
 %\mtcsettitle{minitoc}{}
 %\mtcsetrules{minitoc}{off}
 %\mtcsetfeature{minitoc}{before}{\vspace{-20pt}}% à ajuster
@@ -114,7 +119,52 @@ left=25mm, top=25mm}
 
 %------------Config Boite-------------------%
 
+%--------------------------------------------------------%
+%---------------CONFIG ENVIRONMENTS----------------------%
+%--------------------------------------------------------%
+% Mise en forme partie infos
+\newenvironment{infos}%
+{\begin{minipage}[t][][t]{.35\textwidth}
+\begin{flushright}
+\small\upshape
+\begin{itemize}[label=]\setlength{\itemsep}{.1cm}\setlength{\parskip}{0cm}}
+{\end{itemize}
+\normalsize\upshape
+\end{flushright}
+\end{minipage}}
 
+% Mise en forme partie ingrédient
+\newenvironment{ingredients}
+{\vspace{.5cm}
+\begin{minipage}[t][][t]{.65\textwidth}
+\subsection{Ingrédients~:}
+\small\slshape 
+\begin{itemize}[label={--}]\setlength{\itemsep}{0.1cm}\setlength{\parskip}{0cm}}%
+{\end{itemize}
+\normalsize\upshape
+\end{minipage}}
+
+% Mise en forme partie marche à suivre
+\newenvironment{etapes}%
+{\begin{minipage}[t][][t]{\textwidth}
+\vspace{.8cm}
+\subsection{Marche à suivre~:}
+\normalsize\upshape 
+\begin{enumerate}}%
+{\end{enumerate}
+\normalsize\upshape
+\end{minipage}}
+
+% Mise en forme partie conseil
+\newenvironment{conseils}%
+{\begin{minipage}[t][][t]{\textwidth}
+\vspace{.8cm}
+\subsection{Conseils~:}
+\normalsize\upshape 
+\begin{flushleft}}%
+{\end{flushleft}
+\normalsize\upshape
+\end{minipage}}
 
 \makeindex
 
@@ -127,102 +177,111 @@ left=25mm, top=25mm}
 \tableofcontents 		% Insertion table des matières
 \mainmatter
 
+
 \part{Des plats salés}
 	\chapter{Salades}
-%\begin{minipage}{10cm}
+%\begin{minipage}{15cm}
+%%\minitoc
+%\end{minipage}
+%\newpage
+
+\include{./recettes/Claire/saladedepatesalitalienne}
+\include{./recettes/Claire/saladedepatesprovencale}
+\include{./recettes/Claire/saladedebleauxlegumespoeles}
+	\chapter{Cakes}
+%\begin{minipage}{15cm}
 %\minitoc
 %\end{minipage}
+%\newpage
 
-\input{./recettes/Claire/saladedepatesalitalienne}
-\input{./recettes/Claire/saladedepatesprovencale}
-\input{./recettes/Claire/saladedebleauxlegumespoeles}		
-	\chapter{Cakes}
-\input{./recettes/Claire/cakecourgetteslardonsfromagedechevre}
-\input{./recettes/Claire/cakeauthon}
-\input{./recettes/Claire/caketomatessecheesfetaolives}
-\input{./recettes/Claire/clafoutiscourgettesfromagedechevre}	
-\input{./recettes/cakealsacienfaconflammenkuche}	
+\include{./recettes/Claire/cakecourgetteslardonsfromagedechevre}
+\include{./recettes/Claire/cakeauthon}
+\include{./recettes/Claire/caketomatessecheesfetaolives}
+\include{./recettes/Claire/clafoutiscourgettesfromagedechevre}	
+\include{./recettes/cakealsacienfaconflammenkuche}	
 	\chapter{Tartes}
-\input{./recettes/Claire/tarteausaumonetpoireaux}
-\input{./recettes/Claire/tarteauberginestomateschevre}
-\input{./recettes/Claire/tarteauxpoireaux}	
-\input{./recettes/Claire/tartechevrepiperade}
-\input{./recettes/Claire/tartemascarponejambonpoireauxchevre}
+\include{./recettes/Claire/tarteausaumonetpoireaux}
+\include{./recettes/Claire/tarteauberginestomateschevre}
+\include{./recettes/Claire/tarteauxpoireaux}	
+\include{./recettes/Claire/tartechevrepiperade}
+\include{./recettes/Claire/tartemascarponejambonpoireauxchevre}
 	\chapter{Pizzas}
 	\chapter{Pâtes}
-\input{./recettes/Claire/patescarbonarafaconclaire}	
+\include{./recettes/Claire/patescarbonarafaconclaire}	
 	\chapter{Viandes**}
-\input{./recettes/rotideporcaumiel}
-\input{./recettes/lapinauxpruneaux}
-\input{./recettes/Claire/boeufsauteaubrocolietauxoignons}
-\input{./recettes/Claire/chopsueydeporc}
-\input{./recettes/Claire/rosbeef}
-\input{./recettes/Claire/Stirfrydeporcauxnouilles}
+\include{./recettes/rotideporcaumiel}
+\include{./recettes/lapinauxpruneaux}
+\include{./recettes/Claire/boeufsauteaubrocolietauxoignons}
+\include{./recettes/Claire/chopsueydeporc}
+\include{./recettes/Claire/rosbeef}
+\include{./recettes/Claire/Stirfrydeporcauxnouilles}
 	\chapter{Volailles**}
-\input{./recettes/pouletalanormande}
-\input{./recettes/aiguillettesdedindeaucitron}
-\input{./recettes/Claire/poulardeauvinjauneetauxmorilles}
-\input{./recettes/Claire/pouletalamoutardeestragonchampignons}
-\input{./recettes/Claire/pouletalananas}
-\input{./recettes/Claire/pouletaucurryetlaitdecoco}
-\input{./recettes/Claire/pouletbasquaisefaconclaire}	
+\include{./recettes/pouletalanormande}
+\include{./recettes/aiguillettesdedindeaucitron}
+\include{./recettes/Claire/poulardeauvinjauneetauxmorilles}
+\include{./recettes/Claire/pouletalamoutardeestragonchampignons}
+\include{./recettes/Claire/pouletalananas}
+\include{./recettes/Claire/pouletaucurryetlaitdecoco}
+\include{./recettes/Claire/pouletbasquaisefaconclaire}	
 	\chapter{Poissons}
-\input{./recettes/Claire/papillotesaumonetjulienndelegumesauboursin}	
+\include{./recettes/Claire/papillotesaumonetjulienndelegumesauboursin}	
 	\chapter{Oeufs}
 	\chapter{Soupes}
-\input{./recettes/Claire/soupeauchouvert}
-\input{./recettes/Claire/soupenavetlardcroutons}
-\input{./recettes/Claire/veloutedecourgetteauboursin}
+\include{./recettes/Claire/soupeauchouvert}
+\include{./recettes/Claire/soupenavetlardcroutons}
+\include{./recettes/Claire/veloutedecourgetteauboursin}
 	\chapter{Pains}
 	\chapter{Gratins}
 	\chapter{Plat unique ? (couscous choucroute)}
-\input{./recettes/Claire/tartiflettefaconclaire}
-\input{./recettes/Claire/chiliconcarne}
-\input{./recettes/Claire/hamburgers}
-\input{./recettes/Claire/rizauxsaucisses}		
+\include{./recettes/Claire/tartiflettefaconclaire}
+\include{./recettes/Claire/chiliconcarne}
+\include{./recettes/Claire/hamburgers}
+\include{./recettes/Claire/rizauxsaucisses}		
 
 \part{Les desserts}
 	\chapter{Tartes}
-\input{./recettes/tartemousseuseauxframboises}
-\input{./recettes/Claire/tarteauxpommesalsaciennefaconclaire}
+\include{./recettes/tartemousseuseauxframboises}
+\include{./recettes/Claire/tarteauxpommesalsaciennefaconclaire}
 	\chapter{G\^ateaux}
-\input{./recettes/amandinesalapoire}
-\input{./recettes/Claire/browniesfaconclaire}
-\input{./recettes/Claire/fondantauchocolatfaconclaire}
-\input{./recettes/Claire/gateauauchocolatfaconclaire}
-\input{./recettes/Claire/muffinsauxpepitesdechocolatfaconclaire}
-\input{./recettes/Claire/scones}		
+\include{./recettes/amandinesalapoire}
+\include{./recettes/Claire/browniesfaconclaire}
+\include{./recettes/Claire/fondantauchocolatfaconclaire}
+\include{./recettes/Claire/gateauauchocolatfaconclaire}
+\include{./recettes/Claire/muffinsauxpepitesdechocolatfaconclaire}
+\include{./recettes/Claire/scones}		
 	\chapter{Flans}
-\input{./recettes/millasbordelais}
+\include{./recettes/millasbordelais}
 	\chapter{Brioches et viennoiseries}
-\input{./recettes/kugelhof}
-\input{./recettes/Claire/paindepicefaconclaire}
-\input{./recettes/Claire/briochealapureedamandesetaucitron}
+\include{./recettes/kugelhof}
+\include{./recettes/Claire/paindepicefaconclaire}
+\include{./recettes/Claire/briochealapureedamandesetaucitron}
 	\chapter{Mousses}
 	\chapter{Cr\`emes}
-\input{./recettes/crememicmac}
+\include{./recettes/crememicmac}
 	\chapter{Verrines}
-\input{./recettes/Claire/tiramisuauxfranboisesenverrines}	
+\include{./recettes/Claire/tiramisuauxfranboisesenverrines}	
 	\chapter{Biscuits}
-\input{./recettes/Claire/biscuitsdenoelalacannelle}
-\input{./recettes/Claire/cookiesfaconclaire}
+\include{./recettes/Claire/biscuitsdenoelalacannelle}
+\include{./recettes/Claire/cookiesfaconclaire}
 	\chapter{Fruits}
-\input{./recettes/pechesascona}
+\include{./recettes/pechesascona}
 	\chapter{Glaces}
 	\chapter{Autres}
-\input{./recettes/teurgoule}
-\input{./recettes/cigaresbananechocolat}
-\input{./recettes/oeufsalaneige}
+\include{./recettes/teurgoule}
+\include{./recettes/cigaresbananechocolat}
+\include{./recettes/oeufsalaneige}
+\include{./recettes/Claire/falafels}
+\include{./recettes/Claire/saumon_papillottes}
 
 \part{Les p\^ates et "Morceaux de Recettes"}
 	\chapter{P\^ate à ...}
-\input{./recettes/Claire/pateaquiche}
-\input{./recettes/Claire/patebriseefaconclaire}
-\input{./recettes/Claire/pancakes}
-\input{./recettes/Claire/pateacrepesfaconclaire}
+\include{./recettes/Claire/pateaquiche}
+\include{./recettes/Claire/patebriseefaconclaire}
+\include{./recettes/Claire/pancakes}
+\include{./recettes/Claire/pateacrepesfaconclaire}
 	\chapter{P\^at\'e}
 	\chapter{Sauces}
-\input{./recettes/Claire/pestorouge}
+\include{./recettes/Claire/pestorouge}
 
 \part{Quelle recette aujourd'hui ?}
 	\chapter{Rapide et simple}
