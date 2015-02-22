@@ -21,6 +21,7 @@ left=25mm, top=25mm}
 %\usepackage{minitoc}
 % Permet d'avoir un sommaire ET un table des matières
 %\usepackage[tight]{shorttoc} 
+\usepackage{tocloft}
 
 \usepackage{makeidx}
 
@@ -119,6 +120,10 @@ left=25mm, top=25mm}
 
 %------------Config Boite-------------------%
 
+%------------Config List-------------------%
+% Liste chocolat
+
+
 %--------------------------------------------------------%
 %---------------CONFIG ENVIRONMENTS----------------------%
 %--------------------------------------------------------%
@@ -168,6 +173,16 @@ left=25mm, top=25mm}
 
 \makeindex
 
+\newcommand{\listchoconame}{Recettes au chocolat}
+\newlistof{choco}{cho}{\listchoconame}
+
+\newcommand{\choco}[1]{%
+\refstepcounter{choco}
+%\par\noindent\textbf{Answer \theanswer. #1}
+\addcontentsline{cho}{choco}{\protect\numberline{\thechoco}#1}\par}
+
+
+
 %%%%%%%%%%%%%%%%%%%%
 %-----------Début du document----------%
 %%%%%%%%%%%%%%%%%%%%
@@ -175,6 +190,7 @@ left=25mm, top=25mm}
 \frontmatter
 \input{./titre.tex}			% Titre
 \tableofcontents 		% Insertion table des matières
+
 \mainmatter
 
 
@@ -188,6 +204,7 @@ left=25mm, top=25mm}
 \include{./recettes/Claire/saladedepatesalitalienne}
 \include{./recettes/Claire/saladedepatesprovencale}
 \include{./recettes/Claire/saladedebleauxlegumespoeles}
+\include{./recettes/saladedemacheauxchampignons}
 	\chapter{Cakes}
 %\begin{minipage}{15cm}
 %\minitoc
@@ -234,7 +251,10 @@ left=25mm, top=25mm}
 \include{./recettes/Claire/veloutedecourgetteauboursin}
 \include{./recettes/Claire/carabaccia}
 \include{./recettes/Claire/veloutetopinambours}
+\include{./recettes/soupedepotiron}
+\include{./recettes/soupeaulardetauxpoiscasses}
 	\chapter{Pains}
+\include{./recettes/petitspainsauxlardons}
 	\chapter{Gratins}
 	\chapter{Plat unique ? (couscous choucroute)}
 \include{./recettes/Claire/tartiflettefaconclaire}
@@ -288,10 +308,13 @@ left=25mm, top=25mm}
 \include{./recettes/Claire/pestorouge}
 
 \part{Quelle recette aujourd'hui ?}
-	\chapter{Rapide et simple}
-	\chapter{Aujourd'hui on reçoit}
-	\chapter{Recette d'hiver}
-	\chapter{Recette d'\'et\'e}
+%	\chapter{Rapide et simple}
+%	\chapter{Aujourd'hui on reçoit}
+%	\chapter{Recette d'hiver}
+%	\chapter{Recette d'\'et\'e}
+
+\addcontentsline{toc}{chapter}{\listchoconame}
+\listofchoco
 
 \printindex
 
