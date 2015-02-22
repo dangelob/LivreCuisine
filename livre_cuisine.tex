@@ -21,7 +21,7 @@ left=25mm, top=25mm}
 %\usepackage{minitoc}
 % Permet d'avoir un sommaire ET un table des matières
 %\usepackage[tight]{shorttoc} 
-\usepackage{tocloft}
+\usepackage{tocloft} % gestion de table de matières personnalisées (recette au chocolat)
 
 \usepackage{makeidx}
 
@@ -120,10 +120,6 @@ left=25mm, top=25mm}
 
 %------------Config Boite-------------------%
 
-%------------Config List-------------------%
-% Liste chocolat
-
-
 %--------------------------------------------------------%
 %---------------CONFIG ENVIRONMENTS----------------------%
 %--------------------------------------------------------%
@@ -173,6 +169,8 @@ left=25mm, top=25mm}
 
 \makeindex
 
+%------------Config List-------------------%
+% Liste chocolat
 \newcommand{\listchoconame}{Recettes au chocolat}
 \newlistof{choco}{cho}{\listchoconame}
 
@@ -234,6 +232,7 @@ left=25mm, top=25mm}
 \include{./recettes/Claire/rosbeef}
 \include{./recettes/Claire/Stirfrydeporcauxnouilles}
 \include{./recettes/Claire/boeufcarottes}
+\include{./recettes/boulettedeviande}
 	\chapter{Volailles**}
 \include{./recettes/pouletalanormande}
 \include{./recettes/aiguillettesdedindeaucitron}
