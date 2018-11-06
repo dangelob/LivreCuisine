@@ -20,6 +20,9 @@
 a4paper,
 left=25mm, top=25mm}
 
+\usepackage{marginnote}
+
+
 %\usepackage{minitoc}
 % Permet d'avoir un sommaire ET un table des matières
 %\usepackage[tight]{shorttoc} 
@@ -37,6 +40,9 @@ left=25mm, top=25mm}
 
 \usepackage{textcomp} % pour  \degree
 \usepackage{enumitem} % Gestion fine des listes
+
+
+
 %--------------------------------------------------------%
 %-----------------------LES COMMANDES--------------------%
 %--------------------------------------------------------%
@@ -64,6 +70,12 @@ left=25mm, top=25mm}
 \fontseries{m}%
 \fontshape{n}%
 \selectfont}
+
+
+\newcommand{\chapitre}[1]{
+	\chapter*{#1}
+	\addcontentsline{toc}{chapter}{#1}
+}
 
 	%%------Mise en forme des titres de sections
 \makeatletter %Permet de bidouiller avec l'@
@@ -108,6 +120,7 @@ left=25mm, top=25mm}
 %------------Table des matières-------------------%
 % profondeur de la numérotation (les sections ne sont pas numérotée)(si on veut les sections avec un numéro :  \setcounter{secnumdepth}{1})
 \setcounter{secnumdepth}{0}
+
 
 %jusqu'à quelle profondeur sont inséré les titres dans le sommaire
 \setcounter{tocdepth}{1}
@@ -181,8 +194,7 @@ left=25mm, top=25mm}
 %\par\noindent\textbf{Answer \theanswer. #1}
 \addcontentsline{cho}{choco}{\protect\numberline{\thechoco}#1}\par}
 
-
-
+%\newcommand{\sectionbreak}{\clearpage} %clearpage before session
 %%%%%%%%%%%%%%%%%%%%
 %-----------Début du document----------%
 %%%%%%%%%%%%%%%%%%%%
@@ -194,146 +206,151 @@ left=25mm, top=25mm}
 \mainmatter
 
 
-\part{Des plats salés}
-	\chapter{Salades}
+\part{Les Recettes}
+	\chapitre{Salades}
+
 %\begin{minipage}{15cm}
 %%\minitoc
 %\end{minipage}
 %\newpage
 
-\include{./recettes/Claire/saladedepatesalitalienne}
-\include{./recettes/Claire/saladedepatesprovencale}
-\include{./recettes/Claire/saladedebleauxlegumespoeles}
-\include{./recettes/saladedemacheauxchampignons}
-\include{./recettes/lafontainedelegumes}
-\include{./recettes/saladeromainesauceroquefort}
-\include{./recettes/saladecroquantefenouilpommepecorino}
-\include{./recettes/saladegesierspamplemousse}
-\include{./recettes/salademultivitaminee}
-	\chapter{Cakes}
+\input{./recettes/Claire/saladedepatesalitalienne_v2}
+\input{./recettes/Claire/saladedepatesalitalienne_v3}
+\input{./recettes/Claire/saladedepatesalitalienne_v4}
+\input{./recettes/Claire/saladedepatesalitalienne_v5}
+\input{./recettes/Claire/saladedepatesalitalienne}
+\input{./recettes/Claire/saladedepatesprovencale}
+\input{./recettes/Claire/saladedebleauxlegumespoeles}
+\input{./recettes/saladedemacheauxchampignons}
+\input{./recettes/lafontainedelegumes}
+\input{./recettes/saladeromainesauceroquefort}
+\input{./recettes/saladecroquantefenouilpommepecorino}
+\input{./recettes/saladegesierspamplemousse}
+\input{./recettes/salademultivitaminee}
+	\chapitre{Cakes}
 %\begin{minipage}{15cm}
 %\minitoc
 %\end{minipage}
 %\newpage
 
-\include{./recettes/Claire/cakecourgetteslardonsfromagedechevre}
-\include{./recettes/Claire/cakeauthon}
-\include{./recettes/Claire/caketomatessecheesfetaolives}
-\include{./recettes/Claire/clafoutiscourgettesfromagedechevre}	
-\include{./recettes/cakealsacienfaconflammenkuche}	
-	\chapter{Tartes}
-\include{./recettes/Claire/tarteausaumonetpoireaux}
-\include{./recettes/Claire/tarteauberginestomateschevre}
-\include{./recettes/Claire/tarteauxpoireaux}	
-\include{./recettes/Claire/tartechevrepiperade}
-\include{./recettes/Claire/tartemascarponejambonpoireauxchevre}
-\include{./recettes/Claire/tartechouromanesco}
-	\chapter{Pizzas}
-	\chapter{Pâtes}
-\include{./recettes/Claire/patescarbonarafaconclaire}	
-	\chapter{Viandes**}
-\include{./recettes/rotideporcaumiel}
-\include{./recettes/rotideporcauxoignons}
-\include{./recettes/lapinauxpruneaux}
-\include{./recettes/Claire/boeufsauteaubrocolietauxoignons}
-\include{./recettes/Claire/chopsueydeporc}
-\include{./recettes/Claire/rosbeef}
-\include{./recettes/Claire/Stirfrydeporcauxnouilles}
-\include{./recettes/Claire/boeufcarottes}
-\include{./recettes/boulettedeviande}
-	\chapter{Volailles**}
-\include{./recettes/pouletalanormande}
-\include{./recettes/aiguillettesdedindeaucitron}
-\include{./recettes/Claire/poulardeauvinjauneetauxmorilles}
-\include{./recettes/Claire/pouletalamoutardeestragonchampignons}
-\include{./recettes/Claire/pouletalananas}
-\include{./recettes/Claire/pouletaucurryetlaitdecoco}
-\include{./recettes/Claire/pouletbasquaisefaconclaire}	
-	\chapter{Poissons}
-\include{./recettes/Claire/papillotesaumonetjulienndelegumesauboursin}
-\include{./recettes/Claire/saumon_papillottes}	
-	\chapter{Oeufs}
-	\chapter{Soupes}
-\include{./recettes/Claire/soupeauchouvert}
-\include{./recettes/Claire/soupenavetlardcroutons}
-\include{./recettes/Claire/veloutedecourgetteauboursin}
-\include{./recettes/Claire/carabaccia}
-\include{./recettes/Claire/veloutetopinambours}
-\include{./recettes/soupedepotiron}
-\include{./recettes/soupeaulardetauxpoiscasses}
-\include{./recettes/soupelentillescorail}
-	\chapter{Pains}
-\include{./recettes/petitspainsauxlardons}
-	\chapter{Gratins}
-	\chapter{Plat unique ? (couscous choucroute)}
-\include{./recettes/Claire/tartiflettefaconclaire}
-\include{./recettes/Claire/chiliconcarne}
-\include{./recettes/Claire/hamburgers}
-\include{./recettes/Claire/rizauxsaucisses}		
-	\chapter{Non classés}
-\include{./recettes/Claire/poeleepetitepeautreechalotesroquette}
+\input{./recettes/Claire/cakecourgetteslardonsfromagedechevre}
+\input{./recettes/Claire/cakeauthon}
+\input{./recettes/Claire/caketomatessecheesfetaolives}
+\input{./recettes/Claire/clafoutiscourgettesfromagedechevre}	
+\input{./recettes/cakealsacienfaconflammenkuche}	
+	\chapitre{Tartes}
+\input{./recettes/Claire/tarteausaumonetpoireaux}
+\input{./recettes/Claire/tarteauberginestomateschevre}
+\input{./recettes/Claire/tarteauxpoireaux}	
+\input{./recettes/Claire/tartechevrepiperade}
+\input{./recettes/Claire/tartemascarponejambonpoireauxchevre}
+\input{./recettes/Claire/tartechouromanesco}
+	\chapitre{Pizzas}
+	\chapitre{Pâtes}
+\input{./recettes/Claire/patescarbonarafaconclaire}	
+	\chapitre{Viandes**}
+\input{./recettes/rotideporcaumiel}
+\input{./recettes/rotideporcauxoignons}
+\input{./recettes/lapinauxpruneaux}
+\input{./recettes/Claire/boeufsauteaubrocolietauxoignons}
+\input{./recettes/Claire/chopsueydeporc}
+\input{./recettes/Claire/rosbeef}
+\input{./recettes/Claire/Stirfrydeporcauxnouilles}
+\input{./recettes/Claire/boeufcarottes}
+\input{./recettes/boulettedeviande}
+	\chapitre{Volailles**}
+\input{./recettes/pouletalanormande}
+\input{./recettes/aiguillettesdedindeaucitron}
+\input{./recettes/Claire/poulardeauvinjauneetauxmorilles}
+\input{./recettes/Claire/pouletalamoutardeestragonchampignons}
+\input{./recettes/Claire/pouletalananas}
+\input{./recettes/Claire/pouletaucurryetlaitdecoco}
+\input{./recettes/Claire/pouletbasquaisefaconclaire}	
+	\chapitre{Poissons}
+\input{./recettes/Claire/papillotesaumonetjulienndelegumesauboursin}
+\input{./recettes/Claire/saumon_papillottes}	
+	\chapitre{Oeufs}
+	\chapitre{Soupes}
+\input{./recettes/Claire/soupeauchouvert}
+\input{./recettes/Claire/soupenavetlardcroutons}
+\input{./recettes/Claire/veloutedecourgetteauboursin}
+\input{./recettes/Claire/carabaccia}
+\input{./recettes/Claire/veloutetopinambours}
+\input{./recettes/soupedepotiron}
+\input{./recettes/soupeaulardetauxpoiscasses}
+\input{./recettes/soupelentillescorail}
+	\chapitre{Pains}
+\input{./recettes/petitspainsauxlardons}
+	\chapitre{Gratins}
+	\chapitre{Plat unique ? (couscous choucroute)}
+\input{./recettes/Claire/tartiflettefaconclaire}
+\input{./recettes/Claire/chiliconcarne}
+\input{./recettes/Claire/hamburgers}
+\input{./recettes/Claire/rizauxsaucisses}		
+	\chapitre{Non classés}
+\input{./recettes/Claire/poeleepetitepeautreechalotesroquette}
 	
 
 \part{Les desserts}
-	\chapter{Tartes}
-\include{./recettes/tartemousseuseauxframboises}
-\include{./recettes/Claire/tarteauxpommesalsaciennefaconclaire}
-	\chapter{G\^ateaux}
-\include{./recettes/amandinesalapoire}
-\include{./recettes/Claire/browniesfaconclaire}
-\include{./recettes/Claire/fondantauchocolatfaconclaire}
-\include{./recettes/Claire/gateauauchocolatfaconclaire}
-\include{./recettes/Claire/muffinsauxpepitesdechocolatfaconclaire}
-\include{./recettes/Claire/scones}
-\include{./recettes/gateauauyaourt}
-\include{./recettes/gateaumeringue}		
-	\chapter{Flans}
-\include{./recettes/millasbordelais}
-\include{./recettes/flan}
-	\chapter{Brioches et viennoiseries}
-\include{./recettes/kugelhof}
-\include{./recettes/galetteausucre}
-\include{./recettes/Claire/paindepicefaconclaire}
-\include{./recettes/Claire/briochealapureedamandesetaucitron}
-	\chapter{Mousses}
-	\chapter{Cr\`emes}
-\include{./recettes/crememicmac}
-\include{./recettes/cremerenversee}
-	\chapter{Verrines}
-\include{./recettes/Claire/tiramisuauxfranboisesenverrines}	
-	\chapter{Biscuits}
-\include{./recettes/Claire/biscuitsdenoelalacannelle}
-\include{./recettes/Claire/cookiesfaconclaire}
-\include{./recettes/Claire/biscuitsdamiers}
-\include{./recettes/Claire/croissantsvanille}
-	\chapter{Fruits}
-\include{./recettes/pechesascona}
-	\chapter{Glaces}
-	\chapter{Non classés}
-\include{./recettes/teurgoule}
-\include{./recettes/cigaresbananechocolat}
-\include{./recettes/oeufsalaneige}
-\include{./recettes/Claire/falafels}
+	\chapitre{Tartes}
+\input{./recettes/tartemousseuseauxframboises}
+\input{./recettes/Claire/tarteauxpommesalsaciennefaconclaire}
+	\chapitre{G\^ateaux}
+\input{./recettes/amandinesalapoire}
+\input{./recettes/Claire/browniesfaconclaire}
+\input{./recettes/Claire/fondantauchocolatfaconclaire}
+\input{./recettes/Claire/gateauauchocolatfaconclaire}
+\input{./recettes/Claire/muffinsauxpepitesdechocolatfaconclaire}
+\input{./recettes/Claire/scones}
+\input{./recettes/gateauauyaourt}
+\input{./recettes/gateaumeringue}		
+	\chapitre{Flans}
+\input{./recettes/millasbordelais}
+\input{./recettes/flan}
+	\chapitre{Brioches et viennoiseries}
+\input{./recettes/kugelhof}
+\input{./recettes/galetteausucre}
+\input{./recettes/Claire/paindepicefaconclaire}
+\input{./recettes/Claire/briochealapureedamandesetaucitron}
+	\chapitre{Mousses}
+	\chapitre{Cr\`emes}
+\input{./recettes/crememicmac}
+\input{./recettes/cremerenversee}
+	\chapitre{Verrines}
+\input{./recettes/Claire/tiramisuauxfranboisesenverrines}	
+	\chapitre{Biscuits}
+\input{./recettes/Claire/biscuitsdenoelalacannelle}
+\input{./recettes/Claire/cookiesfaconclaire}
+\input{./recettes/Claire/biscuitsdamiers}
+\input{./recettes/Claire/croissantsvanille}
+	\chapitre{Fruits}
+\input{./recettes/pechesascona}
+	\chapitre{Glaces}
+	\chapitre{Non classés}
+\input{./recettes/teurgoule}
+\input{./recettes/cigaresbananechocolat}
+\input{./recettes/oeufsalaneige}
+\input{./recettes/Claire/falafels}
 
 
 \part{Les p\^ates et "Morceaux de Recettes"}
-	\chapter{P\^ate à ...}
-\include{./recettes/Claire/pateaquiche}
-\include{./recettes/Claire/patebriseefaconclaire}
-\include{./recettes/Claire/pancakes}
-\include{./recettes/Claire/pateacrepesfaconclaire}
-\include{./recettes/pateagaufres}
-	\chapter{P\^at\'e}
-	\chapter{Sauces}
-\include{./recettes/Claire/pestorouge}
+	\chapitre{P\^ate à ...}
+\input{./recettes/Claire/pateaquiche}
+\input{./recettes/Claire/patebriseefaconclaire}
+\input{./recettes/Claire/pancakes}
+\input{./recettes/Claire/pateacrepesfaconclaire}
+\input{./recettes/pateagaufres}
+	\chapitre{P\^at\'e}
+	\chapitre{Sauces}
+\input{./recettes/Claire/pestorouge}
 
 \part{Quelle recette aujourd'hui ?}
-%	\chapter{Rapide et simple}
-%	\chapter{Aujourd'hui on reçoit}
-%	\chapter{Recette d'hiver}
-%	\chapter{Recette d'\'et\'e}
+%	\chapitre{Rapide et simple}
+%	\chapitre{Aujourd'hui on reçoit}
+%	\chapitre{Recette d'hiver}
+%	\chapitre{Recette d'\'et\'e}
 
-\addcontentsline{toc}{chapter}{\listchoconame}
+\addcontentsline{toc}{chapitre}{\listchoconame}
 \listofchoco
 
 \printindex
