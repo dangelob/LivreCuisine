@@ -72,9 +72,11 @@ left=25mm, top=25mm}
 \selectfont}
 
 
+% Cette commande fait perdre les header et footer
 \newcommand{\chapitre}[1]{
 	\chapter*{#1}
 	\addcontentsline{toc}{chapter}{#1}
+	% \markboth{#1}{#1} 
 }
 
 	%%------Mise en forme des titres de sections
