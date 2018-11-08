@@ -15,10 +15,19 @@
 
 \usepackage[french]{babel}
 
-\usepackage{geometry}%Gestion des marges
+\usepackage[]{geometry}%Gestion des marges % [showframe]
 \geometry{
-a4paper,
-left=25mm, top=25mm}
+%a4paper,
+%left=25mm,
+ %top=25mm
+ inner=2.5cm,
+ outer=9cm,
+ bottom=2.5cm, 
+ marginparwidth=7cm,
+ marginparsep=1.5cm,
+ a4paper=true,
+ twoside=true
+}
 
 \usepackage{marginnote}
 
@@ -76,6 +85,7 @@ left=25mm, top=25mm}
 \newcommand{\chapitre}[1]{
 	\chapter*{#1}
 	\addcontentsline{toc}{chapter}{#1}
+	\clearpage
 	% \markboth{#1}{#1} 
 }
 
@@ -141,7 +151,7 @@ left=25mm, top=25mm}
 %---------------CONFIG ENVIRONMENTS----------------------%
 %--------------------------------------------------------%
 % Mise en forme partie infos
-\newenvironment{infos}%
+\newenvironment{infos2}%
 {\begin{minipage}[t][][t]{.35\textwidth}
 \begin{flushright}
 \small\upshape
@@ -151,19 +161,75 @@ left=25mm, top=25mm}
 \end{flushright}
 \end{minipage}}
 
+
+\usepackage{environ}
 % Mise en forme partie ingrédient
-\newenvironment{ingredients}
-{\vspace{.5cm}
-\begin{minipage}[t][][t]{.65\textwidth}
-\subsection{Ingrédients~:}
-\small\slshape 
-\begin{itemize}[label={--}]\setlength{\itemsep}{0.1cm}\setlength{\parskip}{0cm}}%
-{\end{itemize}
-\normalsize\upshape
-\end{minipage}}
+\NewEnviron{ingredients2}{
+\marginnote{
+	\begin{itemize}[label={}]
+			\BODY
+	\end{itemize}
+}%
+}
+
+\NewEnviron{ingredients}{
+	\setlength\parskip{.5em}
+		\checkoddpage
+		\ifoddpage %si impaire
+			\marginnote{
+		\begin{flushright}
+			\BODY
+		\end{flushright}
+	}
+		\else
+			\marginnote{
+		\begin{flushleft}
+			\BODY
+		\end{flushleft}
+	}
+		\fi
+	
+}
+
+
+
+
+\usepackage[strict]{changepage}
+
+\NewEnviron{infos}{	
+\bfseries
+\checkoddpage
+
+\ifoddpage %si impaire
+\begin{flushleft}
+	\BODY
+\end{flushleft}
+\else
+\begin{flushright}
+	\BODY
+\end{flushright}
+\fi
+\normalfont
+}
+%\newcommand{\info}[]}{\textbf{#1}}
+
+\NewEnviron{etapes}{
+		\vspace{.5cm}
+\begin{itemize}[label={}, leftmargin=0cm]
+	\setlength{\itemsep}{5pt} % space between items
+	\BODY
+\end{itemize}
+
+	\begin{center}
+		\par\noindent\rule{.5\textwidth}{0.4pt} 
+	\end{center}
+	
+	
+}
+
 
 % Mise en forme partie marche à suivre
-\newenvironment{etapes}%
+\newenvironment{etapes2}%
 {\begin{minipage}[t][][t]{\textwidth}
 \vspace{.8cm}
 \subsection{Marche à suivre~:}
@@ -201,14 +267,28 @@ left=25mm, top=25mm}
 %-----------Début du document----------%
 %%%%%%%%%%%%%%%%%%%%
 \begin{document}
+	
+	\newgeometry{inner=2.5cm,
+		outer=2.5cm,
+		bottom=2.5cm, 
+		marginparwidth=65.0pt,
+		marginparsep=11.0pt,
+		a4paper=true,
+		twoside=true}
+	
 \frontmatter
 \input{./titre.tex}			% Titre
+\cleardoublepage
 \tableofcontents 		% Insertion table des matières
+
+
 
 \mainmatter
 
 
 \part{Les Recettes}
+
+\restoregeometry
 	\chapitre{Salades}
 
 %\begin{minipage}{15cm}
