@@ -75,7 +75,7 @@
 {20pt}
 {\Huge}
 \titleformat{\section}
-{\fontfamily{pag}\selectfont\Large}
+{\centering\fontfamily{pag}\selectfont\Large}
 {\thesection}
 {1em}
 {}
@@ -106,9 +106,16 @@
 \NewEnviron{recette}[2]{
 	\noindent
 	\begin{minipage}[adjusting]{\textwidth}
+		\checkoddpage
+		\ifoddpage
 		\begin{adjustwidth}{}{-6.5cm} % left and right, positive values to increase margin
-		\section[#1]{#2}	
-	\end{adjustwidth}
+			\section[#1]{#2}	
+		\end{adjustwidth}
+		\else
+			\begin{adjustwidth}{-6.5cm}{} % left and right, positive values to increase margin
+			\section[#1]{#2}	
+		\end{adjustwidth}
+	\fi	
 			\BODY
 	\end{minipage}
 \vfill
