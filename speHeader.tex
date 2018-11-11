@@ -1,0 +1,43 @@
+% https://tex.stackexchange.com/questions/88559/package-right-similar-to-tufte-book
+
+\usepackage{ifthen}% for the \ifthenelse macro
+
+% The Tufte-style running heads are defined similarly to the macros below.
+% These macros avoid using Tufte-specific code, but may still be overkill for a
+% particular document class. (For example, they detect if you're in twoside
+% mode and use different running heads based on that.
+\usepackage{fancyhdr}
+
+%\pagestyle{fancy}
+
+\makeatletter% so we can use macros with @ in their names
+
+% Set the header/footer width to be the body text block plus the margin
+% note area.
+\newlength{\overhanglength}
+\AtBeginDocument{%
+  % Calculate the amount to extend the running heads
+  \setlength{\overhanglength}{\marginparwidth}
+  \addtolength{\overhanglength}{\marginparsep}
+
+  % Set the running head offsets to the overhang length calculated above
+  \ifthenelse{\NOT\boolean{@mparswitch}\AND\boolean{@twoside}}
+    {\fancyhfoffset[RE,RO]{\overhanglength}}% asymmetric
+    {\fancyhfoffset[LE,RO]{\overhanglength}}% symmetric
+}
+
+% The running heads/feet don't have rules
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancyhf{} % clear any existing header and footer fields
+
+% adjust the formatting code to suit your tastes here
+\ifthenelse{\boolean{@twoside}}{%
+  \fancyfoot[LE]{\thepage\quad\leftmark}%
+  \fancyfoot[RO]{\rightmark\quad\thepage}%
+}{%
+  \fancyhead[RE,RO]{\rightmark\quad\thepage}%
+}
+
+\makeatother% restore the original meaning of @

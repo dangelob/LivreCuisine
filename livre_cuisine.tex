@@ -4,37 +4,28 @@
 % Compilation : pdflatex
 
 \documentclass[A4paper,twoside, 12pt]{book}
-%--------------------------------------------------------%
-%-------------------LES PACKAGES-------------------------%
-%--------------------------------------------------------%
-%pdflatex
+
+%-- Packages 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}% polices 
-%\usepackage{newcent}% polices 
 
 \usepackage[french]{babel}
 
 \usepackage[]{geometry}%Gestion des marges % [showframe]
 \geometry{
-%a4paper,
-%left=25mm,
- %top=25mm
- inner=2.5cm,
- outer=9cm,
- bottom=2.5cm, 
+ inner=2.5cm, %left
+ outer=9cm, %right
+ top=2.2cm,
+ bottom=2.2cm, 
  marginparwidth=7cm,
- marginparsep=1.5cm,
+ marginparsep=.5cm,
  a4paper=true,
  twoside=true
 }
 
-\usepackage{marginnote}
+\usepackage{marginnote} %Permet les notes dans la marge
 
-
-%\usepackage{minitoc}
-% Permet d'avoir un sommaire ET un table des matières
-%\usepackage[tight]{shorttoc} 
 \usepackage{tocloft} % gestion de table de matières personnalisées (recette au chocolat)
 
 \usepackage{makeidx}
@@ -44,42 +35,30 @@
 
 \usepackage{graphicx} %insertion d'image
 
-\usepackage{fancyhdr} %En-tête et pied de pages
-\usepackage{fancybox} % Des boites sympa
+%\usepackage{fancyhdr} %En-tête et pied de pages
+
 
 \usepackage{textcomp} % pour  \degree
 \usepackage{enumitem} % Gestion fine des listes
 
+ % Gestion des titres
+\usepackage[]{titlesec}
 
+\usepackage{environ} % gestion des environnements
+\usepackage[strict]{changepage} % permet de savoir si on est sur une page paire ou impaire (+ marges des titres de section)
 
 %--------------------------------------------------------%
 %-----------------------LES COMMANDES--------------------%
 %--------------------------------------------------------%
 %\newcommand{\sommaire}{\shorttoc{Sommaire}{1}} %change la commande pour inserer une short table of content
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % utilisation page de titre
+\newcommand{\HRule}{\rule{\textwidth}{0.5mm}} % utilisation page de titre
 
-%%------indentation des titres de section
-\newlength{\sectiontitleindent}
-\setlength{\sectiontitleindent}{-1cm}	% attribution valeur
-%%------indentation des titres de subsection
-\newlength{\subsectiontitleindent}
-\setlength{\subsectiontitleindent}{-.5cm}	% attribution valeur
 
-%%------définition police de section
-\newcommand{\sectionfont}{%
-\fontencoding{\encodingdefault}%
-\fontfamily{pag}%
-\fontseries{m}%
-\fontshape{sc}%
-\selectfont}
-%%------définition police de subsection
-\newcommand{\subsectionfont}{%
-\fontencoding{\encodingdefault}%
-\fontfamily{pag}%
-\fontseries{m}%
-\fontshape{n}%
-\selectfont}
-
+\titleformat{\part}[display]
+{\fontfamily{pag}\selectfont\Huge}
+{\thepart}
+{20pt}
+{\Huge}
 
 % Cette commande fait perdre les header et footer
 \newcommand{\chapitre}[1]{
@@ -89,112 +68,72 @@
 	% \markboth{#1}{#1} 
 }
 
-	%%------Mise en forme des titres de sections
-\makeatletter %Permet de bidouiller avec l'@
-%--SECTION
-\renewcommand{\section}{%
-\@startsection%
-{section}%
-{1}%
-{\sectiontitleindent}%
-{-3.5ex plus -1ex minus -.2ex}%
-{2.3ex plus .2ex}%
-{\sectionfont\LARGE}}
-%%--SUBSECTION
-\renewcommand{\subsection}{%
-\@startsection%
-{subsection}%
-{2}%
-{\subsectiontitleindent}%
-{-3.5ex plus -1ex minus -.2ex}%
-{2.3ex plus .2ex}%
-{\subsectionfont\large}}
-\makeatother %fin de la permission pour l'@
+%titlesec
+\titleformat{\chapter}[display]
+{\fontfamily{pag}\selectfont\huge}
+{\chaptertitlename\ \thechapter}
+{20pt}
+{\Huge}
+\titleformat{\section}
+{\fontfamily{pag}\selectfont\Large}
+{\thesection}
+{1em}
+{}
+
+
 
 %--------------------------------------------------------%
 %----------EN-TÊTE ET PIED DE PAGE----------------%
 %--------------------------------------------------------%
-\pagestyle{fancy}
-\fancyhf{}
-%%---en-tête---%%
-\fancyhead[LE]{\leftmark}
-\fancyhead[RO]{\leftmark}
-\renewcommand{\headrulewidth}{.5pt} %Utilisé pour la page de titre
-%%---pied de page---%%
-%\fancyfoot[LE,RO]{\thepage}			%pages sur l'extérieur
-\fancyfoot[CE,CO]{---~\thepage~---}		%pages au centre
+\input{speHeader}
 
-%------------Infos Titres-------------------%
-%\title{\textsc{Recettes Familliales}}
-%\author{Collectif}
-%\date{---~Novembre 2011~---} 
+
 
 %------------Table des matières-------------------%
 % profondeur de la numérotation (les sections ne sont pas numérotée)(si on veut les sections avec un numéro :  \setcounter{secnumdepth}{1})
 \setcounter{secnumdepth}{0}
 
-
 %jusqu'à quelle profondeur sont inséré les titres dans le sommaire
 \setcounter{tocdepth}{1}
 
-%Configuration de la minitoc
-%\mtcsettitle{minitoc}{}
-%\mtcsetrules{minitoc}{off}
-%\mtcsetfeature{minitoc}{before}{\vspace{-20pt}}% à ajuster
-%\mtcsetpagenumbers{minitoc}{off}
-%\setcounter{minitocdepth}{1}
-%\dominitoc
 
-%------------Config Boite-------------------%
-
-%--------------------------------------------------------%
+%-------------------------------------------------------------------%
 %---------------CONFIG ENVIRONMENTS----------------------%
-%--------------------------------------------------------%
-% Mise en forme partie infos
-\newenvironment{infos2}%
-{\begin{minipage}[t][][t]{.35\textwidth}
-\begin{flushright}
-\small\upshape
-\begin{itemize}[label=]\setlength{\itemsep}{.1cm}\setlength{\parskip}{0cm}}
-{\end{itemize}
-\normalsize\upshape
-\end{flushright}
-\end{minipage}}
+%-------------------------------------------------------------------%
 
 
-\usepackage{environ}
-% Mise en forme partie ingrédient
-\NewEnviron{ingredients2}{
-\marginnote{
-	\begin{itemize}[label={}]
+
+\NewEnviron{recette}[2]{
+	\noindent
+	\begin{minipage}[adjusting]{\textwidth}
+		\begin{adjustwidth}{}{-6.5cm} % left and right, positive values to increase margin
+		\section[#1]{#2}	
+	\end{adjustwidth}
 			\BODY
-	\end{itemize}
-}%
+	\end{minipage}
+\vfill
 }
 
 \NewEnviron{ingredients}{
-	\setlength\parskip{.5em}
-		\checkoddpage
-		\ifoddpage %si impaire
-			\marginnote{
-		\begin{flushright}
-			\BODY
-		\end{flushright}
-	}
-		\else
-			\marginnote{
-		\begin{flushleft}
-			\BODY
-		\end{flushleft}
-	}
-		\fi
-	
+	\setlength\parskip{.3em}
+	\checkoddpage
+	\ifoddpage %si impaire
+		\marginnote{
+			\begin{flushright}
+				\BODY
+			\end{flushright}
+		}
+	\else
+		\marginnote{
+			\begin{flushleft}
+				\BODY
+			\end{flushleft}
+		}
+	\fi	
 }
 
 
 
-
-\usepackage[strict]{changepage}
 
 \NewEnviron{infos}{	
 \bfseries
@@ -210,6 +149,7 @@
 \end{flushright}
 \fi
 \normalfont
+
 }
 %\newcommand{\info}[]}{\textbf{#1}}
 
@@ -220,35 +160,15 @@
 	\BODY
 \end{itemize}
 
+}
+
+\NewEnviron{conseils}{
 	\begin{center}
 		\par\noindent\rule{.5\textwidth}{0.4pt} 
 	\end{center}
-	
-	
+	\BODY
+	\vspace{1cm}
 }
-
-
-% Mise en forme partie marche à suivre
-\newenvironment{etapes2}%
-{\begin{minipage}[t][][t]{\textwidth}
-\vspace{.8cm}
-\subsection{Marche à suivre~:}
-\normalsize\upshape 
-\begin{enumerate}}%
-{\end{enumerate}
-\normalsize\upshape
-\end{minipage}}
-
-% Mise en forme partie conseil
-\newenvironment{conseils}%
-{\begin{minipage}[t][][t]{\textwidth}
-\vspace{.8cm}
-\subsection{Conseils~:}
-\normalsize\upshape 
-\begin{flushleft}}%
-{\end{flushleft}
-\normalsize\upshape
-\end{minipage}}
 
 \makeindex
 
@@ -267,67 +187,22 @@
 %-----------Début du document----------%
 %%%%%%%%%%%%%%%%%%%%
 \begin{document}
-	
-	\newgeometry{inner=2.5cm,
-		outer=2.5cm,
-		bottom=2.5cm, 
-		marginparwidth=65.0pt,
-		marginparsep=11.0pt,
-		a4paper=true,
-		twoside=true}
-	
+		
 \frontmatter
 \input{./titre.tex}			% Titre
 \cleardoublepage
 \tableofcontents 		% Insertion table des matières
 
-
-
 \mainmatter
-
-
+\pagestyle{fancy}
 \part{Les Recettes}
 
 \restoregeometry
-	\chapitre{Salades}
 
-%\begin{minipage}{15cm}
-%%\minitoc
-%\end{minipage}
-%\newpage
+\input{./chapitre/salades}
+\input{./chapitre/cakes}
+\input{./chapitre/tartes}
 
-\input{./recettes/Claire/saladedepatesalitalienne_v2}
-\input{./recettes/Claire/saladedepatesalitalienne_v3}
-\input{./recettes/Claire/saladedepatesalitalienne_v4}
-\input{./recettes/Claire/saladedepatesalitalienne_v5}
-\input{./recettes/Claire/saladedepatesalitalienne}
-\input{./recettes/Claire/saladedepatesprovencale}
-\input{./recettes/Claire/saladedebleauxlegumespoeles}
-\input{./recettes/saladedemacheauxchampignons}
-\input{./recettes/lafontainedelegumes}
-\input{./recettes/saladeromainesauceroquefort}
-\input{./recettes/saladecroquantefenouilpommepecorino}
-\input{./recettes/saladegesierspamplemousse}
-\input{./recettes/salademultivitaminee}
-	\chapitre{Cakes}
-%\begin{minipage}{15cm}
-%\minitoc
-%\end{minipage}
-%\newpage
-
-\input{./recettes/Claire/cakecourgetteslardonsfromagedechevre}
-\input{./recettes/Claire/cakeauthon}
-\input{./recettes/Claire/caketomatessecheesfetaolives}
-\input{./recettes/Claire/clafoutiscourgettesfromagedechevre}	
-\input{./recettes/cakealsacienfaconflammenkuche}	
-	\chapitre{Tartes}
-\input{./recettes/Claire/tarteausaumonetpoireaux}
-\input{./recettes/Claire/tarteauberginestomateschevre}
-\input{./recettes/Claire/tarteauxpoireaux}	
-\input{./recettes/Claire/tartechevrepiperade}
-\input{./recettes/Claire/tartemascarponejambonpoireauxchevre}
-\input{./recettes/Claire/tartechouromanesco}
-	\chapitre{Pizzas}
 	\chapitre{Pâtes}
 \input{./recettes/Claire/patescarbonarafaconclaire}	
 	\chapitre{Viandes**}
