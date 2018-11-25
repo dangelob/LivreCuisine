@@ -1,0 +1,22 @@
+# Pâte à  gaufres
+
+## Ingrédients
+* 450 g de farine
+* 120 g beurre
+* 75 g de sucre
+* 3 oeufs
+* 3/4 de litre de lait tiède
+* 1 sachet de levure
+
+## Infos
+* Pour X personnes
+* Préparation : 15 min*	
+
+## Étapes
+% Ici les étapes à réaliser
+% Une étape par ligne, chaque ligne commence par un *
+% Pour exemple les étapes pour faire un millas ;)
+* Mélanger la farine, le sucre, la levure, les oeufs et le lait tiède.
+* Ajouter le beurre fondu.
+* Laisser lever dans un endroit tiède.
+
