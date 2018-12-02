@@ -1,10 +1,10 @@
 # Gâteau meringué
 
 ## Ingrédients
-* 350 g de sucre semoule
+* 300 g de sucre semoule
 * 240 g de farine
 * 200 g de chocolat à croquer
-* 2,5 dl de lait
+* 250 ml de lait
 * 3 oeufs
 * 50 g de beurre mou
 * 1 cuillère à soupe de levure chimique
@@ -12,8 +12,8 @@
 
 ## Infos
 * Pour 8 personnes
-* Préparation : 30 min*	
-* Cuisson : 60 min
+* Préparation : 30 min
+* Cuisson : 50-60 min
 
 ## Étapes
 * Préchauffer le four à thermostat 5 (200°C) et beurrer le moule (rectangulaire 33x22 cm).
@@ -27,5 +27,5 @@ Incorporer alors le chocolat et la vanille.
 * Verser un tiers du lait, mélanger, ajouter un tiers de la farine, mélanger et continuer ainsi jusqu'à épuisement des ingrédients.
 * Ajouter 2 pincées de sel aux blancs d'oeufs et les battre en neige ; lorsqu'ils commencent à prendre, verser progressivement le sucre restant tout en continuant à battre jusqu'à obtenir la consistance d'une meringue.
 Incorporer ces blancs battus à la pâte en soulevant la masse de bas en haut en tournant à l'aide d'une spatule.
-* Remplir le moule de pâte et faire cuire 1~h au four. À la fin de la cuisson, le gâteau doit être recouvert d'une croûte mince et satinée. Laisser tiédir pendant 5 minutes, puis démouler le gâteau et laisser le refroidir complètement avant de le servir.
+* Remplir le moule de pâte et faire cuire 1~h au four. À la fin de la cuisson, le gâteau doit être recouvert d'une croûte min et satinée. Laisser tiédir pendant 5 min, puis démouler le gâteau et laisser le refroidir complètement avant de le servir.
 
